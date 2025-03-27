@@ -1,6 +1,26 @@
 //First, dynamically generate DOM
+const buttonTray = document.querySelector('button-tray');
+const calcWindow = document.querySelector('calculator-windwow');
+
+for (let i = 1; i < 4, i++) {
+    //4 times create column and put in button-tray
+    const buttonColumn = document.createElement('div');
+    buttonColumn.classList.add('button-column');
+    for (let j = 1, j < 4, j++) {
+	//4 times, create button and add to column
+	const button = document.createElement('div');
+	button.classList.add('button');
+	buttonColumn.appendChild(button);
+    };
+    buttonTray.appendChild(buttonColumn)
+}; 
 
 //set a function or variable to modify calc window
+function getWindow() {
+    return calcWindwow.textContent;
+};
+
+
 //function to take input from button to push it to window
 
 
@@ -26,4 +46,11 @@
 //Apparently double-pressing the operator is bad
 //Add decimal input
 //After results are displayed, need to start new calculation
+
+//THIS C++came to me in a dream
+// use DOM to dynamically generate grid
+//and to fix the problem of
+//generating your whole button setup
+
+
 
