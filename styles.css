@@ -1,0 +1,26 @@
+.calculator-holster {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.calculator-body {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+.calculator-window {
+	background-color: oklch(89.66% 0.046 260.67);
+	width: 100%;
+}
+.button-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
