@@ -1,10 +1,22 @@
+html { 
+	height: 100vh;
+}
+body {
+	height: 100%;
+}
 .calculator-holster {
 	display: flex;
+	min-height: 45%;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
 .calculator-body {
+	min-width: 30%;
+	padding: 1.5rem; 
+	flex: 1;
+	gap: 1rem;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -12,15 +24,25 @@
 	background-color: oklch(84.68% 0.002 197.12);
 }
 .calculator-window {
+	height: 10%;
+	flex: 4;
 	background-color: oklch(89.66% 0.046 260.67);
-	width: 100%;
+}
+.button-tray {
+	gap: 1rem;
+	flex: 6;
+	display: flex;
 }
 .button-column {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center;
+	flex: 1;
+	gap: 1rem;
 }
 .button {
+	box-sizing: border-box;
+	flex: 2;
 	display: flex;
 	justify-content: center;
 	align-items: center;
