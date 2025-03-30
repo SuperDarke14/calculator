@@ -9,6 +9,7 @@
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
+	background-color: oklch(84.68% 0.002 197.12);
 }
 .calculator-window {
 	background-color: oklch(89.66% 0.046 260.67);
@@ -23,4 +24,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: oklch(93.83% 0.037 56.93);
+	color: oklch(58.28% 0.128 52.2);
 }
