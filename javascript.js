@@ -39,8 +39,16 @@ function sum(a, b) {
 	//because you can't be too sure about things
 }
 //subtract fnc
+function subtract(a, b) {
+}
 //multiply func
-//divite func
+function multiply(a, b) {
+	return (a * 1) * (b * 1)
+}
+//divide func
+function divide(a, b) {
+	return (a * 1) / (b * 1)
+}
 //operate fnc- take operator and 2 vars and call above func
  
 
