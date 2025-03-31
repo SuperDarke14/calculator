@@ -1,25 +1,20 @@
 //First, dynamically generate DOM
-const buttonTray = document.querySelector('button-tray');
-const calcWindow = document.querySelector('calculator-windwow');
-
-for (let i = 1; i < 4, i++) {
-    //4 times create column and put in button-tray
-    const buttonColumn = document.createElement('div');
-    buttonColumn.classList.add('button-column');
-    for (let j = 1, j < 4, j++) {
-	//4 times, create button and add to column
-	const button = document.createElement('div');
-	button.classList.add('button');
-	buttonColumn.appendChild(button);
-    };
-    buttonTray.appendChild(buttonColumn)
-}; 
-
+const buttonTray = document.querySelector('.button-tray');
+const calcWindow = document.querySelector('.calculator-windwow');
+const buttons = document.querySelectorAll('.button');
 //set a function or variable to modify calc window
 function getWindow() {
     return calcWindwow.textContent;
 };
 
+//give each button their own return
+function getButtonText() {
+	return this.textContent;
+};
+//and add it to each button
+for (each of buttons) {
+	each.addEventListener('click', getButtonText);
+}
 
 //function to take input from button to push it to window
 
