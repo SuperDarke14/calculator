@@ -2,6 +2,10 @@
 const buttonTray = document.querySelector('.button-tray');
 const calcWindow = document.querySelector('.calculator-window');
 const buttons = document.querySelectorAll('.button');
+
+//yay, global variables :)
+let operandA = undefined;
+let operandB = undefined;
 //set a function or variable to modify calc window
 function getWindow() {
     return calcWindwow.textContent;
@@ -30,7 +34,21 @@ function addToWindow() {
 function clearWindow() {
 	calcWindow.textContent = '';
 }
-
+function storeAsOperand(variable) {
+	//This function must ONLY be called with the argument as 
+	//either a or b
+	switch (variable) {
+		case a:
+			operandA = this.textContent;
+			break;
+		case b: operandB = this.textContent;
+			break;
+	}
+}
+function clearOperands {
+	let operandA = undefined;
+	let operandB = undefined;
+}
 //Then implement math functionality within calculator window
 //add fnct
 function sum(a, b) {
@@ -40,6 +58,7 @@ function sum(a, b) {
 }
 //subtract fnc
 function subtract(a, b) {
+	return (a * 1) - (b * 1)
 }
 //multiply func
 function multiply(a, b) {
@@ -50,7 +69,22 @@ function divide(a, b) {
 	return (a * 1) / (b * 1)
 }
 //operate fnc- take operator and 2 vars and call above func
- 
+function operate (a, b, operation) {
+	switch (operation){
+		case '+':
+			return sum(a, b);
+			break;
+		case '-':
+			return subtract(a, b);
+			break;
+		case '*':
+			return multiply(a, b);
+			break;
+		case '/':
+			return divide(a, b);
+			break;
+
+	}
 
 //implement nice-to-haves in dom 
 //like clearScreen();
