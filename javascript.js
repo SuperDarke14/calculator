@@ -2,10 +2,12 @@
 const buttonTray = document.querySelector('.button-tray');
 const calcWindow = document.querySelector('.calculator-window');
 const buttons = document.querySelectorAll('.button');
+const operatorButton = document.querySelectorAll('.operatorButton');
 
 //yay, global variables :)
 let operandA = undefined;
 let operandB = undefined;
+let operator = undefined;
 //set a function or variable to modify calc window
 function getWindow() {
     return calcWindwow.textContent;
@@ -20,7 +22,16 @@ for (each of buttons) {
 	each.addEventListener('click', addToWindow);
 	
 };
+for (each of operatorButton) {
+	each.removeEventListener('click', addToWindow);
+	each.addEventListener('click', function () { if (!operandA && !operandB) {operandA = calcWindow.textContent}; if (!operandB) {operandB = calcWindow.textContent}; operator = this.textContext; clearWindow()}); 
+		//check if operand A or operand B
+		//add operator to operator var
+		//clear window
+}
 
+const equalsButton = document.querySelector('.equalsButton');
+equalsButton.addEventListener('click', function() {calcWindow.textContent = operate(operandA, operandB, operator); clearOperands(); });
 //function to take input from button to push it to window
 function addToWindow() {
 	const value = this.textContent;
@@ -45,9 +56,10 @@ function storeAsOperand(variable) {
 			break;
 	}
 }
-function clearOperands {
+function clearOperands() {
 	let operandA = undefined;
 	let operandB = undefined;
+	let operator = undefined;
 }
 //Then implement math functionality within calculator window
 //add fnct
@@ -70,6 +82,8 @@ function divide(a, b) {
 }
 //operate fnc- take operator and 2 vars and call above func
 function operate (a, b, operation) {
+
+	clearOperands();
 	switch (operation){
 		case '+':
 			return sum(a, b);
@@ -83,8 +97,11 @@ function operate (a, b, operation) {
 		case '/':
 			return divide(a, b);
 			break;
-
-	}
+		}
+	//since this is after the return statement, 
+	//the operands may not be cleared. Perhaps calling it before MAY not clobber the operands 
+	//if they are also the args to the function
+}
 
 //implement nice-to-haves in dom 
 //like clearScreen();
