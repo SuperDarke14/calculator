@@ -96,20 +96,20 @@ function operate (a, b, operation) {
 
 	switch (operation){
 		case '+':
-			return sum(a, b);
+			return Math.floor(sum(a, b), 3);
 			break;
 		case '-':
-			return subtract(a, b);
+			return Math.floor(subtract(a, b), 3);
 			break;
 		case '*':
-			return multiply(a, b);
+			return Math.floor(multiply(a, b), 3);
 			break;
 		case '/':
 			if (b === 0) {
 				return 'You stupid';
 				break;
 				};
-			return divide(a, b);
+			return Math.floor(divide(a, b), 3);
 			break;
 		}
 	//since this is after the return statement, 
