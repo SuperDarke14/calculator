@@ -24,14 +24,24 @@ for (each of buttons) {
 };
 for (each of operatorButton) {
 	each.removeEventListener('click', addToWindow);
-	each.addEventListener('click', function () { if (!operandA && !operandB) {operandA = calcWindow.textContent}; if (!operandB) {operandB = calcWindow.textContent}; operator = this.textContext; clearWindow()}); 
+	each.addEventListener('click', function () { if (!operandA) {operandA = calcWindow.textContent.trim()}; operator = this.textContent; clearWindow()}); 
 		//check if operand A or operand B
 		//add operator to operator var
 		//clear window
 }
 
 const equalsButton = document.querySelector('.equalsButton');
-equalsButton.addEventListener('click', function() {calcWindow.textContent = operate(operandA, operandB, operator); clearOperands(); });
+equalsButton.removeEventListener('click', addToWindow) // this allows us  to unclobber the styling
+equalsButton.addEventListener('click', () => {operandB = calcWindow.textContent});
+equalsButton.addEventListener('click', () => {calcWindow.textContent = operate(operandA, operandB, operator); clearOperands(); });
+
+const eraseButton = document.querySelector('.eraseButton');
+eraseButton.removeEventListener('click', addToWindow);
+eraseButton.addEventListener('click', () => {calcWindow.textContent =''; clearOperands();});
+
+const bksp = document.querySelector('.backspaceButton');
+bksp.removeEventListener('click', addToWindow);
+bksp.addEventListener('click', () => {calcWindow.textContent = calcWindow.textContent.slice(0, -1);});
 //function to take input from button to push it to window
 function addToWindow() {
 	const value = this.textContent;
@@ -82,8 +92,8 @@ function divide(a, b) {
 }
 //operate fnc- take operator and 2 vars and call above func
 function operate (a, b, operation) {
-
 	clearOperands();
+
 	switch (operation){
 		case '+':
 			return sum(a, b);
@@ -95,6 +105,10 @@ function operate (a, b, operation) {
 			return multiply(a, b);
 			break;
 		case '/':
+			if (b === 0) {
+				return 'You stupid';
+				break;
+				};
 			return divide(a, b);
 			break;
 		}
