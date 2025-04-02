@@ -67,9 +67,9 @@ function storeAsOperand(variable) {
 	}
 }
 function clearOperands() {
-	let operandA = undefined;
-	let operandB = undefined;
-	let operator = undefined;
+	operandA = undefined;
+	operandB = undefined;
+	operator = undefined;
 }
 //Then implement math functionality within calculator window
 //add fnct
